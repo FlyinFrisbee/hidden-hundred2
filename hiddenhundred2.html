@@ -99,10 +99,17 @@
     <p>
       Want a different perspective to help find the prize faster? Purchase a <span class="highlight">personalized hint</span> for <strong>$2</strong>.
     </p>
-    <!-- Stripe payment link -->
-    <a class="button" href="https://buy.stripe.com/8x200iew741Ygo1dmV7Re00" target="_blank">Buy My Hint ($2)</a>
+    <a class="button" href="https://buy.stripe.com/8x200iew741Ygo1dmV7Re00" target="_blank" id="buyHintButton">Buy My Hint ($2)</a>
     <p class="small-info">Your Explorer ID: <span id="explorerId">#12345</span></p>
     <p class="small-info">Hints Remaining: <span id="hintsRemaining">42</span></p>
+  </div>
+
+  <div class="section">
+    <h2>One Hint Per Explorer!</h2>
+    <p>
+      Each explorer is limited to <span class="highlight">one personalized hint</span>. If you try to grab another, it won’t unlock a new hint — you’ll just be supporting the treasure hunt in spirit! 🏴‍☠️
+    </p>
+    <p><em>Think of it as a challenge: the first hint is your golden ticket. Use it wisely!</em></p>
   </div>
 
   <div class="section">
@@ -110,17 +117,24 @@
     <p><em>Do not trespass or break any laws. Participants assume all risk.</em></p>
   </div>
 
-  <!-- Optional script to dynamically generate Explorer ID -->
   <script>
-    // Simple random ID generator for Explorer
+    // Generate random Explorer ID
     const explorerId = Math.floor(Math.random() * 90000) + 10000;
     document.getElementById('explorerId').textContent = '#' + explorerId;
 
-    // Hints remaining could also be dynamically updated if connected to a backend
-    // For now, you can manually update the number
+    // Hints Remaining (can be manually updated or connected to backend)
     const hintsRemaining = 42;
     document.getElementById('hintsRemaining').textContent = hintsRemaining;
+
+    // Optional: Warn if user clicks the hint button again
+    let hintPurchased = false;
+    document.getElementById('buyHintButton').addEventListener('click', function(e) {
+      if (hintPurchased) {
+        alert("Whoa there! You've already purchased your hint. Buying another won't give you a new clue, but thanks for supporting the hunt! 🏴‍☠️");
+      } else {
+        hintPurchased = true; // first purchase
+      }
+    });
   </script>
 </body>
 </html>
-
