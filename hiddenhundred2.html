@@ -18,11 +18,11 @@
     }
     h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.5em;
+      font-size: 2.8em;
       color: #f2c94c;
       text-align: center;
-      margin-bottom: 25px;
-      text-shadow: 0 0 8px #f2c94c;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #f2c94c;
     }
     .section {
       background-color: #1f1f1f;
@@ -31,7 +31,7 @@
       border-radius: 12px;
       width: 90%;
       max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
     }
     .button {
       background-color: #f2c94c;
@@ -58,10 +58,26 @@
     p, li {
       line-height: 1.6;
     }
+    .highlight {
+      color: #f2c94c;
+      font-weight: bold;
+    }
+    .small-info {
+      font-size: 0.85em;
+      color: #999;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
-  <h1>🏴‍☠️ Welcome to The Hidden Hundred</h1>
+  <h1>🏴‍☠️ The Hidden Hundred</h1>
+
+  <div class="section">
+    <h2>About the Hunt</h2>
+    <p>
+      In 1924, a daring treasure hunter left behind a hidden $100. Only the cleverest explorers can find it. Each clue brings you closer to uncovering the mystery. Are you ready to begin your quest?
+    </p>
+  </div>
 
   <div class="section">
     <h2>Free Universal Clue</h2>
@@ -74,23 +90,37 @@
   <div class="section">
     <h2>How to Participate</h2>
     <p>
-      Solve the clue above and search for the hidden $100 prize. Follow instructions in the container to claim it.
+      Solve the clue above and locate the hidden $100 prize. Follow the instructions in the container to claim it.
     </p>
   </div>
 
   <div class="section">
     <h2>Optional Paid Hint</h2>
     <p>
-      Want a different perspective to help find the prize faster? Purchase a <strong>personalized hint</strong> for <strong>$2</strong>.
+      Want a different perspective to help find the prize faster? Purchase a <span class="highlight">personalized hint</span> for <strong>$2</strong>.
     </p>
     <!-- Stripe payment link -->
     <a class="button" href="https://buy.stripe.com/8x200iew741Ygo1dmV7Re00" target="_blank">Buy My Hint ($2)</a>
+    <p class="small-info">Your Explorer ID: <span id="explorerId">#12345</span></p>
+    <p class="small-info">Hints Remaining: <span id="hintsRemaining">42</span></p>
   </div>
 
   <div class="section">
-    <p><em>Participation is free. The paid hint is optional and only provides a different perspective on the location. No purchase is necessary to win.</em></p>
-    <p><em>Do not trespass or break laws to find the prize. Participants assume all risk.</em></p>
+    <p><em>Participation is free. The paid hint is optional and only provides a different perspective. No purchase is necessary to win.</em></p>
+    <p><em>Do not trespass or break any laws. Participants assume all risk.</em></p>
   </div>
+
+  <!-- Optional script to dynamically generate Explorer ID -->
+  <script>
+    // Simple random ID generator for Explorer
+    const explorerId = Math.floor(Math.random() * 90000) + 10000;
+    document.getElementById('explorerId').textContent = '#' + explorerId;
+
+    // Hints remaining could also be dynamically updated if connected to a backend
+    // For now, you can manually update the number
+    const hintsRemaining = 42;
+    document.getElementById('hintsRemaining').textContent = hintsRemaining;
+  </script>
 </body>
 </html>
 
